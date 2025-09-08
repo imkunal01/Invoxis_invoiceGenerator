@@ -10,7 +10,8 @@ import './LandingPage.css';
  */
 const LandingPage = () => {
   const [greeting, setGreeting] = useState('');
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState('');   // For saved/displayed name
+  const [nameInput, setNameInput] = useState(''); // For input field typing
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -23,13 +24,11 @@ const LandingPage = () => {
     };
 
     // Get user name from localStorage if available
-    const getSavedUserName = () => {
-      const savedName = localStorage.getItem('userName') || '';
-      return savedName;
-    };
+    const savedName = localStorage.getItem('userName') || '';
 
     setGreeting(getGreeting());
-    setUserName(getSavedUserName());
+    setUserName(savedName);   // set greeting name
+    setNameInput(savedName);  // prefill input if needed
     
     // Set loaded state for animation
     setTimeout(() => {
@@ -39,10 +38,9 @@ const LandingPage = () => {
 
   const handleNameSubmit = (e) => {
     e.preventDefault();
-    if (userName.trim()) {
-      localStorage.setItem('userName', userName.trim());
-      // Force update the state to ensure it displays correctly
-      setUserName(userName.trim());
+    if (nameInput.trim()) {
+      localStorage.setItem('userName', nameInput.trim());
+      setUserName(nameInput.trim()); // update greeting after submit
     }
   };
 
@@ -81,7 +79,10 @@ const LandingPage = () => {
             <p className="animate-in delay-1">Create professional invoices in minutes</p>
           </div>
 
-          <div className="greeting-container animate-in delay-2">
+          <motion.div 
+            className="greeting-container animate-in delay-2"
+            variants={itemVariants}
+          >
             <h2>{greeting}{userName ? `, ${userName}` : ''}!</h2>
             
             {!userName && (
@@ -89,14 +90,21 @@ const LandingPage = () => {
                 <input 
                   type="text" 
                   placeholder="What's your name?" 
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
+                  value={nameInput} // <-- controlled by new state
+                  onChange={(e) => setNameInput(e.target.value)}
                   aria-label="Enter your name"
+                  className="name-input"
                 />
-                <button type="submit" className="primary">Save</button>
+                <button 
+                  type="submit" 
+                  className="primary"
+                  disabled={!nameInput.trim()}
+                >
+                  Save
+                </button>
               </form>
             )}
-          </div>
+          </motion.div>
 
           <div className="features animate-in delay-3">
             <div className="feature-card">
