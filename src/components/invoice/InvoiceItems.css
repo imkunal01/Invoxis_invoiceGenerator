@@ -1,0 +1,314 @@
+/* Invoice Items Styles - Dark & Glossy Theme */
+
+.invoice-items {
+  margin-bottom: 2rem;
+}
+
+.empty-items-message {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur-light);
+  -webkit-backdrop-filter: var(--glass-blur-light);
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+  color: var(--text-muted);
+  border: 2px dashed var(--border-color);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.empty-items-message::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+}
+
+.empty-items-message h3 {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.empty-items-message p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.invoice-item {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur-light);
+  -webkit-backdrop-filter: var(--glass-blur-light);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  border: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.invoice-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  z-index: 1;
+}
+
+.invoice-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(138, 111, 255, 0.05), rgba(255, 126, 179, 0.05));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.invoice-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--glow-primary), var(--shadow-medium);
+  border-color: var(--border-hover);
+}
+
+.invoice-item-remove {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--error-color);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-soft);
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.invoice-item-remove:hover {
+  background: #e53e3e;
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: var(--glow-error);
+}
+
+.invoice-item .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.add-item-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 2rem;
+  background: var(--bg-glass);
+  color: var(--primary-color);
+  border: 2px dashed var(--primary-light);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  backdrop-filter: var(--glass-blur-light);
+  -webkit-backdrop-filter: var(--glass-blur-light);
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+.add-item-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(138, 111, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.add-item-button:hover {
+  background: var(--bg-glass-hover);
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-primary), var(--shadow-medium);
+}
+
+.add-item-button:hover::before {
+  opacity: 1;
+}
+
+.add-item-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: drop-shadow(0 0 8px rgba(138, 111, 255, 0.3));
+}
+
+.item-total {
+  font-weight: 600;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: right;
+  padding-top: 2rem;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 107, 139, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid var(--error-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-message::before {
+  content: '⚠';
+  font-size: 0.75rem;
+}
+
+/* Form Group Styles within Invoice Items */
+.invoice-item .form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.invoice-item .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+}
+
+.invoice-item .form-group input,
+.invoice-item .form-group select,
+.invoice-item .form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  backdrop-filter: var(--glass-blur-light);
+  -webkit-backdrop-filter: var(--glass-blur-light);
+  box-shadow: var(--shadow-soft);
+}
+
+.invoice-item .form-group input::placeholder,
+.invoice-item .form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.invoice-item .form-group input:focus,
+.invoice-item .form-group select:focus,
+.invoice-item .form-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(138, 111, 255, 0.2), var(--shadow-medium);
+  outline: none;
+  background: var(--bg-glass-hover);
+}
+
+.invoice-item .form-group input:hover,
+.invoice-item .form-group select:hover,
+.invoice-item .form-group textarea:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .invoice-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem 1.5rem;
+  }
+  
+  .invoice-item-remove {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+  
+  .add-item-button {
+    padding: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group .error-message {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 0.5rem;
+  }
+  
+  .item-total {
+    text-align: left;
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .invoice-item {
+    padding: 1.5rem 1rem 1rem;
+  }
+  
+  .add-item-button {
+    padding: 1.25rem;
+    font-size: 0.95rem;
+  }
+  
+  .add-item-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .empty-items-message {
+    padding: 2rem;
+  }
+  
+  .empty-items-message h3 {
+    font-size: 1.1rem;
+  }
+  
+  .empty-items-message p {
+    font-size: 0.9rem;
+  }
+}

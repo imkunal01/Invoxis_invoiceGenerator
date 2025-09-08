@@ -1,0 +1,517 @@
+/* Invoice Preview Styles - Responsive & Theme Compatible */
+
+.invoice-preview {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  padding: 1.5rem;
+  box-shadow: var(--glass-shadow);
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.invoice-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+  z-index: 1;
+}
+
+.preview-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.preview-actions button {
+  padding: 0.875rem 1.75rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-width: 140px;
+}
+
+.preview-actions button.primary-button {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.preview-actions button.primary-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-primary), var(--shadow-lg);
+}
+
+.preview-actions button.secondary-button {
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur-light);
+  -webkit-backdrop-filter: var(--glass-blur-light);
+}
+
+.preview-actions button.secondary-button:hover {
+  background: var(--bg-glass-hover);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.preview-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.company-info h2 {
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.company-info p {
+  margin: 0.25rem 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.company-logo {
+  margin-bottom: 1rem;
+}
+
+.company-logo img {
+  max-height: 80px;
+  max-width: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.invoice-info {
+  text-align: right;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  min-width: 250px;
+}
+
+.invoice-info h1 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.invoice-info p {
+  margin: 0.5rem 0;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.preview-client-info {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.preview-client-info h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.preview-client-info p {
+  margin: 0.25rem 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.preview-items {
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.preview-items table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: white;
+  min-width: 600px;
+}
+
+.preview-items th {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.preview-items td {
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.preview-items tr:hover td {
+  background: #f8f9fa;
+}
+
+.preview-items tr:last-child td {
+  border-bottom: none;
+}
+
+.empty-items {
+  text-align: center;
+  padding: 3rem 0;
+  color: #999;
+  font-style: italic;
+  font-size: 1.1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 2px dashed #ddd;
+}
+
+.preview-summary {
+  margin-left: auto;
+  width: 50%;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-summary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #ddd;
+  color: #555;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row.total {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 3px solid var(--primary-color);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.preview-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e0e0e0;
+  color: #666;
+  font-style: italic;
+  font-size: 1rem;
+}
+#invoice-to-print {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 0.5cm;
+  }
+  
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  .app-header,
+  .app-footer,
+  .preview-actions,
+  .tabs,
+  button {
+    display: none !important;
+  }
+  
+  .main-container {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .invoice-preview {
+    box-shadow: none !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+    border: none !important;
+  }
+  
+  .preview-container {
+    padding: 0.5cm !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background: white !important;
+    box-shadow: none !important;
+  }
+  
+  .preview-header,
+  .preview-client-info,
+  .preview-items,
+  .preview-summary,
+  .preview-footer {
+    page-break-inside: avoid;
+  }
+  
+  .preview-items table {
+    page-break-inside: auto;
+  }
+  
+  .preview-items tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  
+  .preview-items th {
+    background-color: #f0f0f0 !important;
+    color: black !important;
+  }
+  
+  .preview-summary {
+    width: 60% !important;
+  }
+  
+  .summary-row.total {
+    border-top-color: black !important;
+    color: black !important;
+  }
+  
+  .preview-footer {
+    border-top-color: black !important;
+  }
+  
+  .company-info h2,
+  .invoice-info h1,
+  .preview-client-info h3 {
+    color: black !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+  }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .invoice-preview {
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 16px;
+  }
+  
+  .preview-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .invoice-info {
+    text-align: center;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .preview-summary {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .preview-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .preview-actions button {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .company-logo img {
+    max-height: 60px;
+    max-width: 150px;
+  }
+  
+  .invoice-info h1 {
+    font-size: 2rem;
+  }
+  
+  .preview-items {
+    margin: 0 -1rem;
+  }
+  
+  .preview-items table {
+    min-width: 500px;
+  }
+  
+  .preview-items th,
+  .preview-items td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .summary-row {
+    font-size: 0.95rem;
+  }
+  
+  .summary-row.total {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .invoice-preview {
+    padding: 0.75rem;
+    margin: 0.25rem;
+    border-radius: 12px;
+  }
+  
+  .preview-container {
+    padding: 1rem;
+  }
+  
+  .company-info h2 {
+    font-size: 1.5rem;
+  }
+  
+  .invoice-info h1 {
+    font-size: 1.75rem;
+  }
+  
+  .preview-client-info,
+  .preview-summary {
+    padding: 1rem;
+  }
+  
+  .preview-items th,
+  .preview-items td {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+  }
+  
+  .summary-row {
+    font-size: 0.9rem;
+  }
+  
+  .summary-row.total {
+    font-size: 1.1rem;
+  }
+  
+  .preview-items table {
+    min-width: 400px;
+  }
+  
+  .company-logo img {
+    max-height: 50px;
+    max-width: 120px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .preview-items table {
+    min-width: 350px;
+  }
+  
+  .preview-items th,
+  .preview-items td {
+    padding: 0.4rem 0.2rem;
+    font-size: 0.75rem;
+  }
+  
+  .invoice-info h1 {
+    font-size: 1.5rem;
+  }
+  
+  .company-info h2 {
+    font-size: 1.25rem;
+  }
+}
