@@ -13,7 +13,7 @@
   align-items: center;
   padding: 1rem;
   box-sizing: border-box;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   background: var(--gradient-bg-1);
   position: relative;
 }
