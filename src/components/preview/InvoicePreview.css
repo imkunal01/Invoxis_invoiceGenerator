@@ -283,14 +283,20 @@
   font-size: 1rem;
 }
 
+/* Default live preview */
 #invoice-to-print {
-  width: 210mm;
-  min-height: 297mm;
-  padding: 20mm;
+  width: 100%;
+  min-height: auto;
+  padding: 1rem;
   background: #fff;
   font-family: 'Inter', sans-serif;
   box-sizing: border-box;
+  border-radius: 12px;
 }
+
+/* Print Styles */
+
+
 
 /* Print Styles */
 @media print {
@@ -378,7 +384,13 @@
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
   }
+  #invoice-to-print {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+  }
 }
+
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
