@@ -384,13 +384,8 @@
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
   }
-  #invoice-to-print {
-    width: 210mm;
-    min-height: 297mm;
-    padding: 20mm;
-  }
+  
 }
-
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
@@ -500,5 +495,22 @@
   
   .company-info h2 {
     font-size: clamp(1rem, 5vw, 1.25rem);
+  }
+}
+
+
+@media screen {
+  #invoice-to-print {
+    width: 100% !important;
+    min-height: auto;
+    padding: 1rem;
+  }
+}
+
+@media print {
+  #invoice-to-print {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    padding: 20mm !important;
   }
 }
